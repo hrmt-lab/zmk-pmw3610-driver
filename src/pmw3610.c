@@ -648,34 +648,34 @@ static int pmw3610_report_data(const struct device *dev) {
     uint8_t layer_to_apply = last_orientation_layer;
 
     switch (layer_to_apply) {
-    case 1: // 45°
-        x = ((raw_x + raw_y) * 100) / 141;
-        y = ((raw_y - raw_x) * 100) / 141;
-        break;
-    case 2: // 90°
+    // case 1: // 45°
+    //     x = ((raw_x + raw_y) * 100) / 141;
+    //     y = ((raw_y - raw_x) * 100) / 141;
+    //     break;
+    case 1: // 90° 以下時計回り
         x = raw_y;
         y = -raw_x;
         break;
-    case 3: // 135°
-        x = ((raw_y - raw_x) * 100) / 141;
-        y = -((raw_x + raw_y) * 100) / 141;
-        break;
-    case 4: // 180°
+    // case 3: // 135°
+    //     x = ((raw_y - raw_x) * 100) / 141;
+    //     y = -((raw_x + raw_y) * 100) / 141;
+    //     break;
+    case 2: // 180°
         x = -raw_x;
         y = -raw_y;
         break;
-    case 5: // 225°
-        x = -((raw_x + raw_y) * 100) / 141;
-        y = -((raw_y - raw_x) * 100) / 141;
-        break;
-    case 6: // 270°
+    // case 5: // 225°
+    //     x = -((raw_x + raw_y) * 100) / 141;
+    //     y = -((raw_y - raw_x) * 100) / 141;
+    //     break;
+    case 3: // 270°
         x = -raw_y;
         y = raw_x;
         break;
-    case 7: // 315°
-        x = -((raw_y - raw_x) * 100) / 141;
-        y = ((raw_x + raw_y) * 100) / 141;
-        break;
+    // case 7: // 315°
+    //     x = -((raw_y - raw_x) * 100) / 141;
+    //     y = ((raw_x + raw_y) * 100) / 141;
+    //     break;
     default: // 0°
         x = raw_x;
         y = raw_y;
